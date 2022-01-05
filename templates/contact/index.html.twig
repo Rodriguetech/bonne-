@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+
+   <div class="page-header theme-bg-dark py-5 text-center position-relative">
+	    <div class="theme-bg-shapes-right"></div>
+	    <div class="theme-bg-shapes-left"></div>
+	    <div class="container">
+		    <h1 class="page-heading single-col-max mx-auto">Nous contacter</h1>
+		    
+	    </div>
+    </div><!--//page-header-->
+
+<section class="contact-form-section mb-5">
+			<div class="container">
+                {{ form_start(form , {'attr': {'class': 'contact-form p-5 col-lg-9 mx-lg-auto theme-bg-light shadow'}})}}
+
+			        <h3 class="text-center">Posez nous toutes vos questions </h3>
+                       {% if notification %}
+                                    <div class="alert alert-success">
+                                        {{ notification }}
+                                    </div>
+                                {% endif %}
+
+                     <div class="row g-3">                                                           
+		                <div class="col-md-6">
+		                    {{ form_label(form.nom, 'Nom') }}
+							{{ form_row(form.nom,  {'attr': {'class': 'form-control '}}) }}
+		                </div>                    
+		                <div class="col-md-6">
+		                   {{ form_label(form.prenom, 'Prenom') }}
+							{{ form_row(form.prenom,  {'attr': {'class': 'form-control '}}) }}
+		                </div>
+
+                        <div class="col-md-12">
+		                   {{ form_label(form.email, 'Email') }}
+							{{ form_row(form.email,  {'attr': {'class': 'form-control '}}) }}
+		                </div>
+		                
+		                <div class="col-12">
+                            {{ form_label(form.message, 'Votre message') }}
+							{{ form_row(form.message,  {'attr': {'class': 'form-control ' , "rows":"10", "placeholder":"Entrer votre message"}}) }}
+
+		                    </div>
+		                                       
+		            </div><!--//form-row-->
+		        {{ form_end(form) }}
+		    </div><!--//container-->
+	</section><!--//contact-form-section-->
+
+{% endblock %}

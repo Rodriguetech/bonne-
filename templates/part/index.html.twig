@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande de pret et donation{% endblock %}
+
+{% block body %}
+
+
+
+<div class="page-header theme-bg-dark py-5 text-center position-relative">
+	  <div class="theme-bg-shapes-right"></div>
+	    <div class="theme-bg-shapes-left"></div>
+	    <div class="container">
+		    <h1 class="page-heading single-col-max mx-auto">Demande de pret et donation</h1>
+		    
+	    </div>
+</div>
+
+
+
+<section class="contact-form-section mb-5">
+			<div class="container">
+                {{ form_start(form , {'attr': {'class': 'contact-form p-5 col-lg-9 mx-lg-auto theme-bg-light shadow'}})}}
+
+			        <h3 class="text-center">Posez nous toutes vos questions </h3>
+                       {% if notification %}
+                          <div class="alert alert-success">
+                              {{ notification }}
+                         </div>
+                       {% endif %}
+
+                     <div class="row g-3">         
+                       <div class="col-md-12">
+		                    {{ form_label(form.type, 'Type de demande') }}
+							{{ form_row(form.type,  {'attr': {'class': 'form-select '}}) }}
+		                </div>
+
+		                <div class="col-md-12">
+		                    {{ form_label(form.fullname, 'Nom & prenom') }}
+							{{ form_row(form.fullname,  {'attr': {'class': 'form-control '}}) }}
+		                </div>
+                        <div class="col-md-12">
+		                   {{ form_label(form.email, 'Email') }}
+							{{ form_row(form.email,  {'attr': {'class': 'form-control '}}) }}
+		                </div>
+		                 <div class="col-md-12">
+		                   {{ form_label(form.numero, 'Numero') }}
+							{{ form_row(form.numero,  {'attr': {'class': 'form-control '}}) }}
+		                </div>
+                          <div class="col-md-6">
+		                    {{ form_label(form.pays, 'Pays') }}
+							{{ form_row(form.pays,  {'attr': {'class': 'form-select '}}) }}
+		                </div>
+		                <div class="col-md-6">
+		                    {{ form_label(form.devise, 'Devise') }}
+							{{ form_row(form.devise,  {'attr': {'class': 'form-select '}}) }}
+		                </div>
+		                 <div class="col-md-12">
+		                   {{ form_label(form.montant, 'Montant') }}
+							{{ form_row(form.montant,  {'attr': {'class': 'form-control '}}) }}
+		                </div>
+
+                        <div class="col-md-12">
+		                    {{ form_label(form.dure, 'Durée') }}
+							{{ form_row(form.dure,  {'attr': {'class': 'form-control'}}) }}
+		                </div>
+
+		                <div class="col-12">
+                            {{ form_label(form.message, 'Votre message') }}
+							{{ form_row(form.message,  {'attr': {'class': 'form-control ' , "rows":"10", "placeholder":"Entrer votre message"}}) }}
+
+		                </div>
+		                                       
+		            </div><!--//form-row-->
+		        {{ form_end(form) }}
+		    </div><!--//container-->
+	</section><!--//contact-form-section-->
+
+
+
+{% endblock %}

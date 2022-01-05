@@ -1,0 +1,114 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block css %}
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+        *{
+            font-family: 'Inter', sans-serif !important;
+        }
+
+
+
+        .page-loading {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-transition: all .4s .2s ease-in-out;
+            transition: all .4s .2s ease-in-out;
+            background-color: #0736A8;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 9999;
+        }
+        .page-loading.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .page-loading-inner {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            -webkit-transition: opacity .2s ease-in-out;
+            transition: opacity .2s ease-in-out;
+            opacity: 0;
+        }
+        .page-loading.active > .page-loading-inner {
+            opacity: 1;
+        }
+        .page-loading-inner > span {
+            display: block;
+            font-size: 1rem;
+            font-weight: normal;
+            color: #fff;;
+        }
+        .page-spinner {
+            display: inline-block;
+            width: 2.75rem;
+            height: 2.75rem;
+            margin-bottom: .75rem;
+            vertical-align: text-bottom;
+            border: .15em solid white;
+            border-right-color: transparent;
+            border-radius: 50%;
+            -webkit-animation: spinner .75s linear infinite;
+            animation: spinner .75s linear infinite;
+        }
+        @-webkit-keyframes spinner {
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes spinner {
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+{% endblock %}
+
+{% block loader  %}
+    <div class="page-loading active">
+        <div class="page-loading-inner">
+            <div class="page-spinner"></div><span style="font-size: 25px;">Connexion à votre banque ...</span>
+        </div>
+    </div>
+{% endblock %}
+
+{% block admin %}
+
+{% endblock %}
+
+
+{% block script %}
+
+    <script>
+        (function () {
+            window.onload = function () {
+                var preloader = document.querySelector('.page-loading');
+                preloader.classList.add('active');
+                setTimeout(function () {
+                    preloader.remove();
+                }, 15000);
+
+               return document.location.href="/account/virement/transaction/compte";
+
+            };
+        })();
+    </script>
+
+{% endblock %}

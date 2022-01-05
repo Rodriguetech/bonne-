@@ -1,0 +1,51 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Mon espace{% endblock %}
+
+{% block admin %}
+
+<h1 class="app-page-title">Mes informations</h1>
+ <hr class="mb-4">
+
+  <div class="row g-4 settings-section">
+	                <div class="col-12 col-md-4">
+		                <h3 class="section-title">Protégez votre avenir et vos informations</h3>
+		                <div class="section-intro">Les formules d’épargne et d’investissement de BonneFoie finance vous aide à constituer une épargne pour l’avenir, faciliter la transmission de votre patrimoine et protéger vos proches ; tout ceci en optimisant vos impôts.</div>
+	                </div>
+	                <div class="col-12 col-md-8">
+		                <div class="app-card app-card-settings shadow-sm p-4">
+						    
+						    <div class="app-card-body">
+							    <div class="mb-2"><strong>Nom complet :</strong> {{ app.user.nom }} {{ app.user.prenom }} </div>
+							    <div class="mb-2"><strong>Statut du compte :</strong> <span class="badge bg-success">Active</span></div>
+							    <div class="mb-2"><strong>Email :</strong> {{app.user.email}}</div>
+                                <div class="mb-2"><strong>Phone :</strong> {{app.user.phone}}</div>
+							    <div class="mb-4"><strong>Adresse :</strong>{{app.user.adresse}}</div>
+								    
+						    </div><!--//app-card-body-->
+						    
+						</div><!--//app-card-->
+	                </div>
+
+
+               <div class="row g-4 settings-section">
+	                <div class="col-12 col-md-4">
+		                <h3 class="section-title">Informations relatif a votre compte bancaire</h3>
+		             </div>
+	                <div class="col-12 col-md-8">
+		                <div class="app-card app-card-settings shadow-sm p-4">
+						    
+						    <div class="app-card-body">
+				
+							    <div class="mb-2"><strong>Iban :</strong> <span class="badge bg-success">FR{{ random(20 , 90) }} {{ random(1248 , 3248) }}  {{ random(1248 , 3248) }} {{ random(1248 , 3248) }} {{ random(1248 , 3248) }}  {{ random(1248 , 3248) }} {{ random(148 , 248) }}</span></div>
+							    <div class="mb-2"><strong>Clé rib :</strong> {{ random(50, 100) }}</div>
+                                <div class="mb-2"><strong>Numero de compte :</strong> {{  app.user.uuid }}</div>
+	    
+						    </div><!--//app-card-body-->
+						    
+						</div><!--//app-card-->
+	                </div>
+<marquee><span style="font-size: 25px;">Garder vos informations de façon confidentiel - Merci d'être BonneFoie finance</span>  </marquee>
+
+
+{% endblock %}

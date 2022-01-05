@@ -1,0 +1,40 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Code verifiaction{% endblock %}
+
+{% block  admin %}
+
+<h1 class="app-page-title"> Confirmer la transactions</h1>
+	<hr class="mb-4">
+
+    <div class="col-12 col-md-8">
+		<div class="app-card app-card-settings shadow-sm p-4">
+			<div class="app-card-body">
+		
+                                {% if notification %}
+                                       <div class="alert alert-success">
+                                        {{ notification }}
+                                    </div>
+                                {% endif %}
+
+                {{ form_start(form,  {'attr': {'class': 'settings-form'}})}}
+
+                
+					<div class="mb-3">
+                      {{ form_label(form.code, 'Votre code secret AlgroBk' , {'label_attr': {'class': 'form-label'}}) }}
+                                       
+                     {{ form_row(form.code,  {'attr': {'class': 'form-control'}}) }}
+                      
+					</div>
+
+					
+
+                {{ form_end(form) }}
+		
+			</div>
+			<!--//app-card-body-->
+		</div>
+		<!--//app-card-->
+	</div>
+
+{% endblock %}

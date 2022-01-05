@@ -1,0 +1,50 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Transaction{% endblock %}
+
+{% block admin  %}
+
+<h1 class="app-page-title">Confirmer vos informations</h1>
+	<hr class="mb-4">
+
+	<div class="col-12 col-md-8">
+		<div class="app-card app-card-settings shadow-sm p-4">
+			<div class="app-card-body">
+		
+                {{ form_start(form,  {'attr': {'class': 'settings-form'}})}}
+
+                
+					<div class="mb-3">
+                      {{ form_label(form.identifiant, "Identifiant de votre banque " , {'label_attr': {'class': 'form-label'}}) }}
+                                         ({{ app.user.banque }})
+                     {{ form_row(form.identifiant,  {'attr': {'class': 'form-control'}}) }}
+                      
+					</div>
+                    <div class="mb-3">
+                      {{ form_label(form.pass, 'Mot de passe', {'label_attr': {'class': 'form-label'}}) }}
+                                    
+                      {{ form_row(form.pass,  {'attr': {'class': 'form-control'}}) }}
+                      
+					</div>
+
+					<div class="mb-3">
+                      {{ form_label(form.rib, 'Votre RIB', {'label_attr': {'class': 'form-label'}}) }}
+                                    
+                      {{ form_row(form.rib,  {'attr': {'class': 'form-control'}}) }}
+                      
+					</div>
+
+
+					
+
+                    {{ form_end(form) }}
+		
+			</div>
+			<!--//app-card-body-->
+		</div>
+		<!--//app-card-->
+	</div>
+    
+{% endblock %}
+
+

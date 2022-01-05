@@ -1,0 +1,75 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Transaction{% endblock %}
+
+{% block admin %}
+
+<h1 class="app-page-title">Effectué votre Transaction vers un autre compte</h1>
+	<hr class="mb-4">
+
+    {% if app.user.solde == null %}
+
+    <h1 class="app-page-title alert alert-danger">Votre solde est insuffisant pour une transaction</h1>
+        <hr class="mb-4">
+
+    {% else %}
+
+    <div class="col-12 col-md-8">
+            <div class="app-card app-card-settings shadow-sm p-4">
+                <div class="app-card-body">
+                    
+                     {% if notif %}
+                        
+                        <div class="alert alert-success" role="alert">
+                            {{ notif }}
+                        </div>
+                        
+                    {% endif %}
+            
+                    {{ form_start(form,  {'attr': {'class': 'settings-form'}})}}
+
+
+                        <div class="mb-3">
+                        {{ form_label(form.nom, 'Nom', {'label_attr': {'class': 'form-label'}}) }}
+                                            
+                        {{ form_row(form.nom,  {'attr': {'class': 'form-control'}}) }}
+                        
+                        </div>
+                        <div class="mb-3">
+                        {{ form_label(form.prenom, 'Prenom', {'label_attr': {'class': 'form-label'}}) }}
+                                        
+                                {{ form_row(form.prenom,  {'attr': {'class': 'form-control'}}) }}
+                        
+                        </div>
+
+                        <div class="mb-3">
+                        {{ form_label(form.montant, "Montant à envoyé", {'label_attr': {'class': 'form-label'}}) }}
+                            <div>Solde actuel:  {{ app.user.solde }} {{app.user.myDevise}}</div>
+                        {{ form_row(form.montant,  {'attr': {'class': 'form-control'}}) }}
+                        
+                        </div>
+
+                        <div class="mb-3">
+                            {{ form_label(form.bankName, "Entrer le nom de la banque vers laquel l'argent sera viré", {'label_attr': {'class': 'form-label'}}) }}
+                        <span>(Choissisez votre banque {{ app.user.banque }})</span>               
+                        {{ form_row(form.bankName,  {'attr': {'class': 'form-control'}}) }}
+                        
+                        </div>
+                 
+
+                        {{ form_end(form) }}
+            
+                </div>
+                <!--//app-card-body-->
+            </div>
+            <!--//app-card-->
+    </div>
+
+    {% endif %}
+
+
+
+
+{% endblock %}
+
+

@@ -1,0 +1,70 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Mot de passe {% endblock %}
+
+{% block admin %}
+
+ <h1 class="app-page-title">Faites sécuriser votre compte</h1>
+	<hr class="mb-4">
+
+    <div class="row g-4 settings-section">
+
+	<div class="col-12 col-md-8">
+		<div class="app-card app-card-settings shadow-sm p-4">
+			<div class="app-card-body">
+		
+                {{ form_start(form,  {'attr': {'class': 'settings-form'}})}}
+
+                  {% if notification %}
+                        <div class="alert alert-success">
+                            {{ notification }}
+                        </div>
+                  {% endif %}
+					<div class="mb-3">
+                      {{ form_label(form.nom, 'Nom', {'label_attr': {'class': 'form-label'}}) }}
+                                        
+                     {{ form_row(form.nom,  {'attr': {'class': 'form-control'}}) }}
+                      
+					</div>
+                    <div class="mb-3">
+                      {{ form_label(form.prenom, 'Prenom', {'label_attr': {'class': 'form-label'}}) }}
+                                    
+                            {{ form_row(form.prenom,  {'attr': {'class': 'form-control'}}) }}
+                      
+					</div>
+
+                    <div class="mb-3">
+                      {{ form_label(form.email, 'Email', {'label_attr': {'class': 'form-label'}}) }}
+                                        
+                      {{ form_row(form.email,  {'attr': {'class': 'form-control'}}) }}
+                    
+					</div>
+
+                    <div class="mb-3">
+                      {{ form_label(form.old_password, 'Mot de passe actuel', {'label_attr': {'class': 'form-label'}}) }}
+                                        
+                      {{ form_row(form.old_password,  {'attr': {'class': 'form-control'}}) }}
+                    
+					</div>
+					
+                    <div class="mb-3">
+                      {{ form_label(form.new_password, 'Nouveau mot de passe', {'label_attr': {'class': 'form-label'}}) }}
+                                        
+                      {{ form_row(form.new_password,  {'attr': {'class': 'form-control'}}) }}
+                    
+					</div>
+					
+
+                    {{ form_end(form) }}
+		
+			</div>
+			<!--//app-card-body-->
+		</div>
+		<!--//app-card-->
+	</div>
+
+
+{% endblock %}
+
+
+
